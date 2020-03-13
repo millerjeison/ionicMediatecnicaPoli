@@ -1,20 +1,116 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<div class="container-fluid">
+  <!-- <div id="caja" class="formulario posicionFormulario "> -->
+  <div id="caja" class="formulario posicionFormulario">
+    <div id="titulo" class="titulo ">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+      <h5 id="Ti">Ingresa los Siguentes Datos</h5>
+    </div>
+
+
+    <br>
+    <div id="d_input" class="">
+
+
+
+      <div class="d_input "><input type="text" [(ngModel)]="Nombre" placeholder="Nombre"></div>
+      <div class="d_input "><input type="text" [(ngModel)]="Apellido" placeholder="Apellido"></div>
+      <div class="d_input "><input type="email" [(ngModel)]="Correo" placeholder="Correo"></div>
+      <div class="d_input "><input type="number" [(ngModel)]="Cedula" placeholder="Cedula"></div>
+      <div class="d_input "><input type="text" [(ngModel)]="Usuario_Githup" placeholder="Usuario Githup"></div>
+      <div class="d_input "><input type="date" [(ngModel)]="Fechas" placeholder="Fechas de nacimiento"></div>
+      <div class="d_input ">
+        <input class="checkbox " type="checkbox" [checked]="checkbox" [(ngModel)]="checkbox"> <span>Nos permite
+          guardar tus datos en el cokie</span>
+      </div>
+
+      <div (click)="guardarStorage()" class="guardar">Guardar</div>
+
+    </div>
+
+    <!-- Datos de perfil -->
+    <div class="col-md-12 nP">
+      <div class="row " id="rM">
+        <div id="perfil" class="perfil col-sm-12 col-md-3">
+          <div id="animaT" class="animaT">
+            <div class="cirl" id="cirl">
+
+            </div>
+            <h6>{{datos.Usuario_Githup}}</h6>
+
+            <h6> {{datos.Nombre}} {{datos.Apellido}}</h6>
+            <h6> {{datos.Correo}}</h6>
+
+            <h6>{{datos.Cedula}}</h6>
+
+            <h6>{{datos.Fechas}}</h6>
+
+          </div>
+          <!-- <div id="dTitulo" class="dTitulo auto">{{datos.Usuario_Githup}}</div> -->
+        </div>
+        <div class="col-md-8 col-12 animaT" id="contenedorRepo">
+
+          <div class="buscador auto ">
+
+            <input type="text" class="form-control" name="filterPost" placeholder="Buscar repositorio"
+              [(ngModel)]="filterPost">
+          </div>
+          <br>
+
+
+          <div class=" col-md-12 AzulO ">
+            <div class="barra">
+              Repositorios
+            </div>
+            <div class="over">
+              <div class="cuadros col-md-12" *ngFor="let i of repositiorios | filtro : filterPost">
+                <span>Nombre:
+                  {{i.name}}
+                </span>
+                <br>
+
+                <span>Descripcion :
+
+                  {{i.description}}</span>
+                <br>
+                <span>Lenguage:
+
+                  {{i.language}}</span>
+                <br>
+                <span>Git :
+
+                  {{i.html_url}}</span>
+                <br>
+
+                <span>Branch: {{i.branches_url}}</span>
+              </div>
+
+
+
+            </div>
+            <div class="  barra">
+              <div class="auto col-md-7 ">
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+
   </div>
+
+
+
+
+
+</div>
+
 </ion-content>
